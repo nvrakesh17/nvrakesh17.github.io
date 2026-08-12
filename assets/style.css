@@ -38,3 +38,169 @@ footer{text-align:center;color:var(--muted);padding:36px;border-top:1px solid va
 .certificate-link{display:inline-block;margin-top:15px;padding:8px 12px;border:1px solid var(--line);border-radius:8px;background:#17243a;color:#e9f2ff;font-size:13px;font-weight:750}
 .certificate-link:hover{border-color:#45648d}
 @media(max-width:850px){.skill-groups{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.cert-card{align-items:flex-start}.cert-meta{display:block}.cert-meta span{display:block;margin-top:4px}}
+
+/* =========================
+   Technical Stack
+   ========================= */
+
+.skill-groups {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.skill-group {
+  background: linear-gradient(145deg, #101c31, #0c1526);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 15px;
+}
+
+.skill-category {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--accent);
+  font-weight: 800;
+  margin-bottom: 9px;
+}
+
+.skill-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.skill-items span {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 8px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: #17243a;
+  color: #d7e1ef;
+  font-size: 12px;
+  line-height: 1.15;
+  white-space: nowrap;
+}
+
+
+/* =========================
+   Certifications
+   ========================= */
+
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.cert-card {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+
+  background: linear-gradient(145deg, #121f35, #0d1627);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.cert-badge {
+  width: 64px;
+  height: 64px;
+  flex: 0 0 64px;
+
+  border-radius: 14px;
+
+  display: grid;
+  place-items: center;
+
+  background: var(--accent);
+  color: #06101e;
+
+  font-size: 17px;
+  font-weight: 900;
+}
+
+.cert-info h3 {
+  font-size: 17px;
+  line-height: 1.3;
+  margin: 5px 0;
+}
+
+.cert-info p {
+  color: var(--muted);
+  font-size: 13px;
+  margin: 0 0 10px;
+}
+
+.cert-status {
+  font-size: 10px;
+  letter-spacing: 1.2px;
+  font-weight: 800;
+  color: #6be39a;
+}
+
+.cert-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+
+  color: #aebbd0;
+  font-size: 12px;
+}
+
+.certificate-link {
+  display: inline-block;
+
+  margin-top: 13px;
+  padding: 7px 10px;
+
+  border: 1px solid var(--line);
+  border-radius: 7px;
+
+  background: #17243a;
+  color: #e9f2ff;
+
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.certificate-link:hover {
+  border-color: #45648d;
+}
+
+
+/* =========================
+   Responsive
+   ========================= */
+
+@media (max-width: 950px) {
+
+  .skill-groups {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cert-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .skill-groups {
+    grid-template-columns: 1fr;
+  }
+
+  .cert-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cert-card {
+    flex-direction: row;
+  }
+
+}
