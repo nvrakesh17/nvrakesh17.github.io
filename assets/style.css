@@ -204,3 +204,122 @@ footer{text-align:center;color:var(--muted);padding:36px;border-top:1px solid va
   }
 
 }
+
+/* =========================
+   Architecture Cards
+   ========================= */
+
+.arch-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.arch-icon {
+  width: 46px;
+  height: 46px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid var(--line);
+  border-radius: 12px;
+
+  background: #17243a;
+
+  font-size: 21px;
+}
+
+.arch-label {
+  font-size: 10px;
+  letter-spacing: 1.4px;
+  font-weight: 800;
+
+  color: var(--accent);
+
+  margin-bottom: 3px;
+}
+
+.arch h3 {
+  margin: 0;
+}
+
+.arch p {
+  line-height: 1.65;
+  margin-bottom: 18px;
+}
+
+
+/* GCP Migration Flow */
+
+.architecture-flow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 7px;
+
+  margin: 18px 0;
+  padding: 12px;
+
+  border: 1px solid var(--line);
+  border-radius: 10px;
+
+  background: rgba(255,255,255,.02);
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.architecture-flow span:not(.arrow) {
+  padding: 6px 9px;
+
+  border-radius: 6px;
+
+  background: #17243a;
+
+  color: #d7e1ef;
+}
+
+.architecture-flow .arrow {
+  color: var(--accent);
+  font-size: 15px;
+}
+
+
+/* Architecture Tags */
+
+.architecture-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.architecture-tags span {
+  padding: 5px 8px;
+
+  border: 1px solid var(--line);
+  border-radius: 6px;
+
+  background: #17243a;
+
+  color: #b9c7d9;
+
+  font-size: 11px;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+  .arch-header {
+    align-items: flex-start;
+  }
+
+  .architecture-flow {
+    gap: 5px;
+  }
+
+}
