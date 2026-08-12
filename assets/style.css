@@ -15,3 +15,10 @@ section{padding:66px 0;border-top:1px solid var(--line)}.section-tight{padding-t
 .contact{display:flex;justify-content:space-between;gap:35px;align-items:center;background:linear-gradient(135deg,#142b49,#0e182b);border-color:#2a4d75}.contact h2{font-size:31px;margin:4px 0}.contact p{color:var(--muted);max-width:690px;margin:0}
 footer{text-align:center;color:var(--muted);padding:36px;border-top:1px solid var(--line);font-size:13px}
 @media(max-width:850px){.hero,.highlight-grid,.cards,.architecture-grid,.skills-grid,.job-grid,.three{grid-template-columns:1fr}.section-head{display:block}.section-head>p{margin-top:12px}.links{display:none}.hero{padding-top:62px}.contact{display:block}.contact .buttons{margin-top:22px}.arch.wide{grid-column:auto}}
+
+.tool-groups{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.tool-group{background:linear-gradient(145deg,#101c31,#0c1526);border:1px solid var(--line);border-radius:14px;padding:18px}
+.tool-category{font-size:12px;text-transform:uppercase;letter-spacing:1.2px;color:var(--accent);font-weight:800;margin-bottom:11px}
+.tool-list{display:flex;flex-wrap:wrap;gap:8px}
+.tool-list span{display:inline-flex;align-items:center;padding:6px 10px;border:1px solid var(--line);border-radius:8px;background:#17243a;color:#d7e1ef;font-size:13px;line-height:1.2;white-space:nowrap}
+@media(max-width:850px){.tool-groups{grid-template-columns:1fr}}
