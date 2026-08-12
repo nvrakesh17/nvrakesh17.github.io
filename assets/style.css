@@ -323,3 +323,232 @@ footer{text-align:center;color:var(--muted);padding:36px;border-top:1px solid va
   }
 
 }
+
+/* =========================
+   GCP Migration Architecture
+   ========================= */
+
+.arch-diagram {
+  margin-top: 22px;
+  padding: 18px 20px;
+  background: #091322;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.diagram-title {
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.diagram-flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.diagram-node {
+  min-width: 115px;
+  padding: 12px 10px;
+  text-align: center;
+  background: #111f35;
+  border: 1px solid #243956;
+  border-radius: 8px;
+  color: #dce7f5;
+  font-size: 11px;
+}
+
+.diagram-node strong {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.diagram-node small {
+  display: block;
+  color: #8fa1b9;
+  font-size: 9px;
+}
+
+.diagram-arrow {
+  color: var(--accent);
+  font-size: 18px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.architecture-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 14px;
+}
+
+.architecture-tags span {
+  padding: 6px 10px;
+  background: #17243a;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  color: #b9c7d9;
+  font-size: 11px;
+}
+
+@media (max-width: 700px) {
+
+  .diagram-flow {
+    flex-direction: column;
+  }
+
+  .diagram-arrow {
+    transform: rotate(90deg);
+  }
+
+  .diagram-node {
+    width: 100%;
+    max-width: 220px;
+  }
+
+}
+
+/* =========================
+   GCP Migration Architecture
+   ========================= */
+
+.arch-diagram {
+  margin-top: 22px;
+  padding: 18px 20px;
+
+  background: #091322;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.diagram-title {
+  color: var(--accent);
+
+  font-size: 11px;
+  font-weight: 800;
+
+  margin-bottom: 20px;
+}
+
+.diagram-flow {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  max-width: 100%;
+
+  gap: 8px;
+  box-sizing: border-box;
+}
+
+.diagram-node {
+  flex: 1 1 0;
+  min-width: 0;
+
+  padding: 12px 8px;
+
+  text-align: center;
+
+  background: #111f35;
+
+  border: 1px solid #243956;
+  border-radius: 8px;
+
+  color: #dce7f5;
+
+  font-size: 11px;
+
+  box-sizing: border-box;
+}
+
+.diagram-node strong {
+  display: block;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  margin-bottom: 5px;
+
+  white-space: nowrap;
+}
+
+.diagram-node small {
+  display: block;
+
+  color: #8fa1b9;
+
+  font-size: 9px;
+
+  white-space: nowrap;
+}
+
+.diagram-arrow {
+  flex: 0 0 auto;
+
+  color: var(--accent);
+
+  font-size: 18px;
+  font-weight: 700;
+}
+
+
+/* =========================
+   Architecture Tags
+   ========================= */
+
+.architecture-tags {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 7px;
+
+  margin-top: 14px;
+}
+
+.architecture-tags span {
+  padding: 6px 10px;
+
+  background: #17243a;
+
+  border: 1px solid var(--line);
+
+  border-radius: 7px;
+
+  color: #b9c7d9;
+
+  font-size: 11px;
+}
+
+
+/* =========================
+   Mobile
+   ========================= */
+
+@media (max-width: 700px) {
+
+  .diagram-flow {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .diagram-arrow {
+    transform: rotate(90deg);
+  }
+
+  .diagram-node {
+    width: 100%;
+    max-width: 220px;
+  }
+
+}

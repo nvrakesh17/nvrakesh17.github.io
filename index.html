@@ -737,7 +737,7 @@
 
       <!-- Kubernetes Delivery -->
 
-      <article class="arch wide">
+      <article class="arch">
 
         <div class="arch-header">
 
@@ -807,41 +807,52 @@
 
         <p>
           Contributed to migrating enterprise workloads from
-          <strong>on-premise infrastructure to GCP</strong>,
-          using <strong>Terraform</strong> for infrastructure
-          automation and <strong>GKE</strong> for containerized
-          application workloads.
+          <strong>on-premise infrastructure to GCP</strong>, using
+          <strong>Terraform</strong> for infrastructure automation and
+          <strong>GKE</strong> for containerized application workloads.
         </p>
 
-        <div class="architecture-flow">
+        <div class="arch-diagram">
 
-          <span>
-            On-Premise
-          </span>
+          <div class="diagram-title">
+            On-Premise → GCP Migration
+          </div>
 
-          <span class="arrow">
-            →
-          </span>
+          <div class="diagram-flow">
 
-          <span>
-            Terraform
-          </span>
+            <div class="diagram-node">
+              <strong>On-Premise</strong>
+              <small>Applications</small>
+            </div>
 
-          <span class="arrow">
-            →
-          </span>
+            <div class="diagram-arrow">
+              →
+            </div>
 
-          <span>
-            GCP
-          </span>
+            <div class="diagram-node">
+              <strong>Terraform</strong>
+              <small>Infrastructure</small>
+            </div>
 
-          <span class="arrow">
-            →
-          </span>
+            <div class="diagram-arrow">
+              →
+            </div>
 
-          <span>
-            GKE
-          </span>
+            <div class="diagram-node">
+              <strong>GCP</strong>
+              <small>VPC · IAM</small>
+            </div>
+
+            <div class="diagram-arrow">
+              →
+            </div>
+
+            <div class="diagram-node">
+              <strong>GKE</strong>
+              <small>Containers</small>
+            </div>
+
+          </div>
 
         </div>
 
