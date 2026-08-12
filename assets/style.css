@@ -22,3 +22,19 @@ footer{text-align:center;color:var(--muted);padding:36px;border-top:1px solid va
 .tool-list{display:flex;flex-wrap:wrap;gap:8px}
 .tool-list span{display:inline-flex;align-items:center;padding:6px 10px;border:1px solid var(--line);border-radius:8px;background:#17243a;color:#d7e1ef;font-size:13px;line-height:1.2;white-space:nowrap}
 @media(max-width:850px){.tool-groups{grid-template-columns:1fr}}
+
+.skill-groups{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.skill-group{background:linear-gradient(145deg,#101c31,#0c1526);border:1px solid var(--line);border-radius:12px;padding:15px}
+.skill-category{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--accent);font-weight:800;margin-bottom:9px}
+.skill-items{display:flex;flex-wrap:wrap;gap:6px}
+.skill-items span{display:inline-flex;align-items:center;padding:5px 8px;border:1px solid var(--line);border-radius:7px;background:#17243a;color:#d7e1ef;font-size:12px;line-height:1.15;white-space:nowrap}
+.cert-grid{display:grid;grid-template-columns:minmax(0,760px);gap:16px}
+.cert-card{display:flex;gap:22px;align-items:center;background:linear-gradient(145deg,#121f35,#0d1627);border:1px solid var(--line);border-radius:16px;padding:24px}
+.cert-badge{width:82px;height:82px;flex:0 0 82px;border-radius:18px;display:grid;place-items:center;background:var(--accent);color:#06101e;font-size:22px;font-weight:900;letter-spacing:-1px}
+.cert-info h3{font-size:21px;margin:4px 0 4px}
+.cert-info p{color:var(--muted);margin:0 0 12px}
+.cert-status{font-size:11px;letter-spacing:1.3px;font-weight:800;color:#6be39a}
+.cert-meta{display:flex;gap:22px;flex-wrap:wrap;color:#aebbd0;font-size:13px}
+.certificate-link{display:inline-block;margin-top:15px;padding:8px 12px;border:1px solid var(--line);border-radius:8px;background:#17243a;color:#e9f2ff;font-size:13px;font-weight:750}
+.certificate-link:hover{border-color:#45648d}
+@media(max-width:850px){.skill-groups{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.cert-card{align-items:flex-start}.cert-meta{display:block}.cert-meta span{display:block;margin-top:4px}}
