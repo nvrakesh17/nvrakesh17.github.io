@@ -1356,16 +1356,31 @@ footer {
     repeat(3, 1fr);
 }
 
+/* =========================================================
+   DOWNLOAD ICON
+   ========================================================= */
+
+.download-icon {
+  width: 21px;
+  height: 21px;
+  margin-right: 9px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vertical-align: -4px;
+}
+
 
 /* =========================================================
-   RESPONSIVE — 950px
+   RESPONSIVE — TABLET / SMALL LAPTOP
    ========================================================= */
 
 @media (max-width: 950px) {
 
   .skill-groups {
-    grid-template-columns:
-      repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .cert-grid {
@@ -1373,42 +1388,29 @@ footer {
   }
 
   .hero {
-    grid-template-columns:
-      48% 52%;
-
+    grid-template-columns: 48% 52%;
     min-height: 650px;
   }
 
   .hero::before {
     width: 72%;
-
     background-size: auto 100%;
-
     background-position: right center;
   }
 
   .hero > .wrap {
     padding-left: 42px;
-
     padding-right: 20px;
-
     padding-bottom: 145px;
   }
 
   .hero-title {
-    font-size:
-      clamp(
-        44px,
-        5vw,
-        60px
-      );
+    font-size: clamp(44px, 5vw, 60px);
   }
 
   .hero-panel {
     left: 28%;
-
     right: 3%;
-
     bottom: 18px;
   }
 
@@ -1427,7 +1429,7 @@ footer {
 
 
 /* =========================================================
-   RESPONSIVE — 850px
+   RESPONSIVE — TABLET
    ========================================================= */
 
 @media (max-width: 850px) {
@@ -1475,155 +1477,153 @@ footer {
 
 
 /* =========================================================
-   RESPONSIVE — 750px
+   RESPONSIVE — MOBILE
    ========================================================= */
 
 @media (max-width: 750px) {
 
+  /*
+   * The desktop hero uses a two-column grid.
+   * Mobile becomes one continuous hero so the office photo
+   * can sit naturally behind the entire section.
+   */
   .hero {
-    min-height: 850px;
-
     display: block;
-
+    min-height: 830px;
     padding: 0;
   }
 
-
   /*
-     Full office photo behind the entire hero.
-  */
-
+   * Keep the complete vertical composition of the office
+   * photograph visible. The image is blended into the hero
+   * rather than displayed as a separate card.
+   */
   .hero::before {
     width: 100%;
-
     background-size: auto 100%;
-
-    background-position:
-      center top;
-
+    background-position: center top;
     opacity: 0.78;
   }
-
 
   .hero::after {
     background:
       linear-gradient(
         180deg,
-
         rgba(8, 20, 38, 0.48) 0%,
-
         rgba(8, 20, 38, 0.62) 42%,
-
         rgba(8, 20, 38, 0.90) 72%,
-
         #080d18 100%
       );
   }
 
-
   .hero > .wrap {
-    padding:
-      55px
-      24px
-      250px;
-
     max-width: 100%;
+    padding: 55px 24px 245px;
   }
-
 
   .hero .kicker {
     font-size: 13px;
-
     letter-spacing: 1.6px;
   }
 
-
   .hero-title {
-    font-size:
-      clamp(
-        40px,
-        11vw,
-        52px
-      );
-
+    font-size: clamp(40px, 11vw, 52px);
     line-height: 1.03;
-
     max-width: 100%;
-
     margin-bottom: 18px;
   }
 
-
   .hero-lead {
     font-size: 15px;
-
     max-width: 100%;
   }
 
+  .buttons {
+    gap: 8px;
+    margin-top: 20px;
+  }
 
+  .btn {
+    padding: 9px 13px;
+    font-size: 13px;
+  }
+
+  /*
+   * IMPORTANT:
+   * The desktop panel is fixed because it acts as a floating
+   * status bar. On mobile it becomes part of the hero flow.
+   * This prevents it from covering the rest of the portfolio.
+   */
   .hero-panel {
-    left: 20px;
+    position: absolute;
+    left: 15px;
+    right: 15px;
+    bottom: 16px;
 
-    right: 20px;
-
-    bottom: 18px;
+    width: auto;
+    min-height: auto;
 
     display: block;
-
-    min-height: auto;
+    transform: none;
 
     border-radius: 14px;
   }
 
-
   .availability {
     min-height: auto;
+    padding: 11px 13px;
 
-    padding: 13px 16px;
+    font-size: 12px;
+    line-height: 1.4;
 
     border-right: none;
-
-    border-bottom:
-      1px solid
+    border-bottom: 1px solid
       rgba(130, 170, 215, 0.22);
   }
 
-
   .stats {
     display: grid;
-
-    grid-template-columns:
-      repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
-
 
   .stat {
-    min-height: 78px;
+    min-height: 70px;
+    padding: 9px 11px;
 
-    padding: 11px 10px;
+    border-left: 1px solid
+      rgba(130, 170, 215, 0.22);
+
+    border-bottom: 1px solid
+      rgba(130, 170, 215, 0.16);
   }
 
+  .stat:nth-child(odd) {
+    border-left: none;
+  }
+
+  .stat:nth-last-child(-n + 2) {
+    border-bottom: none;
+  }
 
   .stat strong {
-    font-size: 21px;
+    font-size: 19px;
   }
 
-
   .stat span {
-    font-size: 10px;
+    font-size: 9px;
+    line-height: 1.3;
   }
 }
 
 
 /* =========================================================
-   RESPONSIVE — 700px
+   RESPONSIVE — ARCHITECTURE DIAGRAM
    ========================================================= */
 
 @media (max-width: 700px) {
 
   .diagram-flow {
     flex-direction: column;
-
     gap: 8px;
   }
 
@@ -1633,7 +1633,6 @@ footer {
 
   .diagram-node {
     width: 100%;
-
     max-width: 220px;
   }
 
@@ -1648,15 +1647,12 @@ footer {
 
 
 /* =========================================================
-   RESPONSIVE — 600px
+   RESPONSIVE — MOBILE PORTRAIT
    ========================================================= */
 
 @media (max-width: 600px) {
 
-  .skill-groups {
-    grid-template-columns: 1fr;
-  }
-
+  .skill-groups,
   .cert-grid {
     grid-template-columns: 1fr;
   }
@@ -1666,35 +1662,29 @@ footer {
   }
 
   .hero {
-    min-height: 900px;
+    min-height: 850px;
   }
 
   .hero > .wrap {
     padding-left: 20px;
-
     padding-right: 20px;
   }
 
   .hero-title {
     font-size: 39px;
   }
-
-  .stats {
-    grid-template-columns:
-      repeat(2, 1fr);
-  }
-
-  .stat:last-child {
-    grid-column: 1 / -1;
-  }
 }
 
 
 /* =========================================================
-   RESPONSIVE — 480px
+   RESPONSIVE — SMALL PHONES
    ========================================================= */
 
 @media (max-width: 480px) {
+
+  .hero {
+    min-height: 870px;
+  }
 
   .hero-title {
     font-size: 37px;
@@ -1714,115 +1704,23 @@ footer {
 
   .btn {
     padding: 9px 13px;
-
     font-size: 13px;
   }
-}
-
-.download-icon {
-  width: 21px;
-  height: 21px;
-  margin-right: 9px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  vertical-align: -4px;
-}
-
-/* =========================================================
-   MOBILE HERO PANEL FIX
-   ========================================================= */
-
-@media (max-width: 750px) {
 
   .hero-panel {
-    position: absolute;
-
-    left: 20px;
-    right: 20px;
-
-    bottom: 20px;
-
-    width: auto;
-
-    min-height: auto;
-
-    display: block;
-
-    transform: none;
-
-    overflow: hidden;
-
-    border-radius: 14px;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
   }
 
   .availability {
-    min-height: auto;
-
-    padding: 13px 16px;
-
-    border-right: none;
-
-    border-bottom: 1px solid
-      rgba(130, 170, 215, 0.22);
-  }
-
-  .stats {
-    display: grid;
-
-    grid-template-columns:
-      repeat(2, 1fr);
+    font-size: 11px;
+    padding: 10px 12px;
   }
 
   .stat {
-    min-height: 76px;
-
-    padding: 11px 12px;
-
-    border-left: 1px solid
-      rgba(130, 170, 215, 0.22);
-  }
-
-  .stat:nth-child(odd) {
-    border-left: none;
-  }
-
-  .stat strong {
-    font-size: 20px;
-  }
-
-  .stat span {
-    font-size: 10px;
-  }
-}
-
-
-/* =========================================================
-   SMALL MOBILE
-   ========================================================= */
-
-@media (max-width: 480px) {
-
-  .hero {
-    min-height: 920px;
-  }
-
-  .hero-panel {
-    left: 15px;
-    right: 15px;
-    bottom: 15px;
-  }
-
-  .availability {
-    font-size: 12px;
-    padding: 11px 13px;
-  }
-
-  .stat {
-    min-height: 72px;
-    padding: 10px;
+    min-height: 66px;
+    padding: 8px 9px;
   }
 
   .stat strong {
