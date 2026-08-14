@@ -1730,3 +1730,106 @@ footer {
   stroke-linejoin: round;
   vertical-align: -4px;
 }
+
+/* =========================================================
+   MOBILE HERO PANEL FIX
+   ========================================================= */
+
+@media (max-width: 750px) {
+
+  .hero-panel {
+    position: absolute;
+
+    left: 20px;
+    right: 20px;
+
+    bottom: 20px;
+
+    width: auto;
+
+    min-height: auto;
+
+    display: block;
+
+    transform: none;
+
+    overflow: hidden;
+
+    border-radius: 14px;
+  }
+
+  .availability {
+    min-height: auto;
+
+    padding: 13px 16px;
+
+    border-right: none;
+
+    border-bottom: 1px solid
+      rgba(130, 170, 215, 0.22);
+  }
+
+  .stats {
+    display: grid;
+
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  .stat {
+    min-height: 76px;
+
+    padding: 11px 12px;
+
+    border-left: 1px solid
+      rgba(130, 170, 215, 0.22);
+  }
+
+  .stat:nth-child(odd) {
+    border-left: none;
+  }
+
+  .stat strong {
+    font-size: 20px;
+  }
+
+  .stat span {
+    font-size: 10px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .hero {
+    min-height: 920px;
+  }
+
+  .hero-panel {
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+  }
+
+  .availability {
+    font-size: 12px;
+    padding: 11px 13px;
+  }
+
+  .stat {
+    min-height: 72px;
+    padding: 10px;
+  }
+
+  .stat strong {
+    font-size: 18px;
+  }
+
+  .stat span {
+    font-size: 9px;
+  }
+}
