@@ -1,218 +1,789 @@
-*{box-sizing:border-box}
-:root{--bg:#080d18;--card:#101a2d;--card2:#13213a;--text:#edf3fc;--muted:#9aa8bd;--accent:#67adff;--accent2:#9acbff;--line:#26344d}
-html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 10% 0,#13294b 0,#080d18 38%);color:var(--text);font:16px/1.65 Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-a{color:var(--accent);text-decoration:none}.wrap{max-width:1100px;margin:auto;padding:0 26px}
-nav{position:sticky;top:0;z-index:20;background:#080d18e8;backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding:17px 0}.nav{display:flex;justify-content:space-between;align-items:center}.brand{color:var(--text);font-weight:850;letter-spacing:.2px}.links{display:flex;gap:21px;font-size:14px}.links a{color:#c9d4e5}.links a:hover{color:#fff}
-.hero{padding:92px 0 74px;display:grid;grid-template-columns:1.5fr .78fr;gap:52px;align-items:center}.kicker,.eyebrow,.label,.job-label{color:var(--accent);font-weight:800;letter-spacing:1.5px;text-transform:uppercase;font-size:12px}
-h1{font-size:clamp(45px,7vw,76px);line-height:.99;letter-spacing:-3.5px;margin:13px 0 21px}.hero-lead{font-size:19px;color:var(--muted);max-width:780px}.buttons{display:flex;gap:10px;flex-wrap:wrap;margin-top:27px}.btn{padding:10px 16px;border:1px solid var(--line);border-radius:9px;background:var(--card);color:var(--text);font-weight:760;transition:.2s}.btn:hover{transform:translateY(-1px);border-color:#45648d}.btn.primary{background:var(--accent);color:#06101e;border-color:var(--accent)}
-.hero-panel{background:linear-gradient(145deg,#12223b,#0d1628);border:1px solid var(--line);border-radius:18px;padding:22px}.availability{font-size:13px;color:#cdd8e8;margin-bottom:18px}.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#6be39a;margin-right:8px}
-.stats{display:grid;grid-template-columns:1fr 1fr;gap:12px}.stat{padding:18px;border:1px solid var(--line);border-radius:13px;background:#0e1729}.stat strong{display:block;font-size:28px}.stat span{font-size:12px;color:var(--muted)}
-section{padding:66px 0;border-top:1px solid var(--line)}.section-tight{padding-top:52px}.section-head{display:flex;justify-content:space-between;gap:40px;align-items:end;margin-bottom:24px}.section-head h2{font-size:32px;line-height:1.15;margin:5px 0 0}.section-head>p{color:var(--muted);max-width:530px;margin:0}
-.highlight-grid,.cards,.architecture-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.highlight-card,.card,.arch,.contact{background:linear-gradient(145deg,#121d32,#0d1627);border:1px solid var(--line);border-radius:16px;padding:23px}.highlight-card{min-height:185px}.icon{color:var(--accent);font-size:12px;font-weight:800}.highlight-card h3,.card h3,.arch h3{margin:8px 0 6px;font-size:20px}.highlight-card p,.card p,.arch p{color:var(--muted);margin:0}.mini-tags,.tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:14px}.mini-tags span,.tags span,.skill-cloud span{font-size:12px;padding:4px 9px;border:1px solid var(--line);border-radius:99px;color:#cbd7e8;background:#17243a}
-.job{display:grid;grid-template-columns:55px 1fr;gap:0;border-left:2px solid var(--accent);padding:0 0 30px 22px;margin:27px 0 0 9px}.job-number{font-size:12px;color:var(--accent);font-weight:850;padding-top:4px}.job h3{margin:0;font-size:21px}.meta{color:var(--accent);font-size:14px;margin:2px 0 13px}.job ul{padding-left:20px;color:var(--muted)}.job li{margin:7px 0}.job-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}.job-label{display:block;margin-top:4px;margin-bottom:5px}.featured-job{background:linear-gradient(145deg,#111f36,#0c1526);border-radius:14px;padding:20px 20px 20px 0;border-left-width:3px}
-.architecture-grid{grid-template-columns:1fr 1fr}.arch.wide{grid-column:1/-1}.arch img{width:100%;margin-top:13px;border-radius:10px;background:#09111f;border:1px solid #1d2a40}
-.skill-cloud{display:flex;flex-wrap:wrap;gap:9px}.skill-cloud span{font-size:13px;padding:7px 11px;background:#101c31}.three{grid-template-columns:repeat(3,1fr)}.cert h3{font-size:17px}
-.contact{display:flex;justify-content:space-between;gap:35px;align-items:center;background:linear-gradient(135deg,#142b49,#0e182b);border-color:#2a4d75}.contact h2{font-size:31px;margin:4px 0}.contact p{color:var(--muted);max-width:690px;margin:0}
-footer{text-align:center;color:var(--muted);padding:36px;border-top:1px solid var(--line);font-size:13px}
-@media(max-width:850px){.hero,.highlight-grid,.cards,.architecture-grid,.skills-grid,.job-grid,.three{grid-template-columns:1fr}.section-head{display:block}.section-head>p{margin-top:12px}.links{display:none}.hero{padding-top:62px}.contact{display:block}.contact .buttons{margin-top:22px}.arch.wide{grid-column:auto}}
+/* =========================================================
+   GLOBAL
+   ========================================================= */
 
-.tool-groups{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-.tool-group{background:linear-gradient(145deg,#101c31,#0c1526);border:1px solid var(--line);border-radius:14px;padding:18px}
-.tool-category{font-size:12px;text-transform:uppercase;letter-spacing:1.2px;color:var(--accent);font-weight:800;margin-bottom:11px}
-.tool-list{display:flex;flex-wrap:wrap;gap:8px}
-.tool-list span{display:inline-flex;align-items:center;padding:6px 10px;border:1px solid var(--line);border-radius:8px;background:#17243a;color:#d7e1ef;font-size:13px;line-height:1.2;white-space:nowrap}
-@media(max-width:850px){.tool-groups{grid-template-columns:1fr}}
-
-.skill-groups{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.skill-group{background:linear-gradient(145deg,#101c31,#0c1526);border:1px solid var(--line);border-radius:12px;padding:15px}
-.skill-category{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--accent);font-weight:800;margin-bottom:9px}
-.skill-items{display:flex;flex-wrap:wrap;gap:6px}
-.skill-items span{display:inline-flex;align-items:center;padding:5px 8px;border:1px solid var(--line);border-radius:7px;background:#17243a;color:#d7e1ef;font-size:12px;line-height:1.15;white-space:nowrap}
-.cert-grid{display:grid;grid-template-columns:minmax(0,760px);gap:16px}
-.cert-card{display:flex;gap:22px;align-items:center;background:linear-gradient(145deg,#121f35,#0d1627);border:1px solid var(--line);border-radius:16px;padding:24px}
-.cert-badge{width:82px;height:82px;flex:0 0 82px;border-radius:18px;display:grid;place-items:center;background:var(--accent);color:#06101e;font-size:22px;font-weight:900;letter-spacing:-1px}
-.cert-info h3{font-size:21px;margin:4px 0 4px}
-.cert-info p{color:var(--muted);margin:0 0 12px}
-.cert-status{font-size:11px;letter-spacing:1.3px;font-weight:800;color:#6be39a}
-.cert-meta{display:flex;gap:22px;flex-wrap:wrap;color:#aebbd0;font-size:13px}
-.certificate-link{display:inline-block;margin-top:15px;padding:8px 12px;border:1px solid var(--line);border-radius:8px;background:#17243a;color:#e9f2ff;font-size:13px;font-weight:750}
-.certificate-link:hover{border-color:#45648d}
-@media(max-width:850px){.skill-groups{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.cert-card{align-items:flex-start}.cert-meta{display:block}.cert-meta span{display:block;margin-top:4px}}
-
-/* =========================
-   Technical Stack
-   ========================= */
-
-.skill-groups {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
+* {
+  box-sizing: border-box;
 }
 
-.skill-group {
-  background: linear-gradient(145deg, #101c31, #0c1526);
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  padding: 15px;
+:root {
+  --bg: #080d18;
+  --card: #101a2d;
+  --card2: #13213a;
+  --text: #edf3fc;
+  --muted: #9aa8bd;
+  --accent: #67adff;
+  --accent2: #9acbff;
+  --line: #26344d;
 }
 
-.skill-category {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(
+      circle at 10% 0,
+      #13294b 0,
+      #080d18 38%
+    );
+  color: var(--text);
+  font:
+    16px/1.65
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+a {
   color: var(--accent);
-  font-weight: 800;
-  margin-bottom: 9px;
+  text-decoration: none;
 }
 
-.skill-items {
+.wrap {
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 26px;
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+
+  background: #080d18e8;
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  border-bottom: 1px solid var(--line);
+
+  padding: 17px 0;
+}
+
+.nav {
   display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-.skill-items span {
-  display: inline-flex;
+  justify-content: space-between;
   align-items: center;
-  padding: 5px 8px;
-  border: 1px solid var(--line);
-  border-radius: 7px;
-  background: #17243a;
-  color: #d7e1ef;
-  font-size: 12px;
-  line-height: 1.15;
-  white-space: nowrap;
 }
 
+.brand {
+  color: var(--text);
 
-/* =========================
-   Certifications
-   ========================= */
+  font-size: 30px;
+  font-weight: 850;
 
-.cert-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
+  letter-spacing: 0.2px;
 }
 
-.cert-card {
+.links {
   display: flex;
-  gap: 18px;
-  align-items: flex-start;
+  gap: 21px;
 
-  background: linear-gradient(145deg, #121f35, #0d1627);
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 20px;
+  font-size: 14px;
 }
 
-.cert-badge {
-  width: 64px;
-  height: 64px;
-  flex: 0 0 64px;
+.links a {
+  color: #c9d4e5;
+}
+
+.links a:hover {
+  color: #fff;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+  position: relative;
+
+  min-height: 600px;
+
+  overflow: hidden;
+
+  display: grid;
+
+  grid-template-columns:
+    46%
+    54%;
+
+  align-items: stretch;
+
+  padding: 0;
+}
+
+
+/* =========================================================
+   FULL OFFICE BACKGROUND IMAGE
+   ========================================================= */
+
+.hero::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  right: 0;
+  bottom: 0;
+
+  width: 70%;
+
+  background-image:
+    url("images/profile-office.png");
+
+  background-repeat: no-repeat;
+
+  /*
+     Keep the complete image visible vertically.
+     Do NOT use cover.
+  */
+  background-size: auto 100%;
+
+  background-position:
+    right center;
+
+  z-index: 0;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   HERO IMAGE BLENDING
+   ========================================================= */
+
+.hero::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 1;
+
+  pointer-events: none;
+
+  background:
+
+    /* LEFT DARK GRADIENT */
+    linear-gradient(
+      90deg,
+
+      #0b1b34 0%,
+
+      #0b1b34 20%,
+
+      rgba(11, 27, 52, 0.99) 30%,
+
+      rgba(11, 27, 52, 0.90) 38%,
+
+      rgba(11, 27, 52, 0.65) 47%,
+
+      rgba(11, 27, 52, 0.35) 56%,
+
+      rgba(11, 27, 52, 0.10) 67%,
+
+      rgba(11, 27, 52, 0) 76%
+    ),
+
+    /* SUBTLE BOTTOM FADE */
+    linear-gradient(
+      180deg,
+
+      rgba(5, 12, 24, 0.04) 0%,
+
+      rgba(5, 12, 24, 0) 65%,
+
+      rgba(5, 12, 24, 0.38) 100%
+    );
+}
+
+
+/* =========================================================
+   HERO CONTENT
+   ========================================================= */
+
+.hero > .wrap {
+  position: relative;
+
+  z-index: 3;
+
+  grid-column: 1;
+
+  align-self: center;
+
+  max-width: none;
+
+  margin: 0;
+
+  padding-left: 68px;
+  padding-right: 20px;
+
+  padding-top: 25px;
+  padding-bottom: 145px;
+}
+
+
+/* =========================================================
+   HERO KICKER
+   ========================================================= */
+
+.hero .kicker {
+  color: var(--accent);
+
+  font-size: 15px;
+
+  font-weight: 850;
+
+  letter-spacing: 2px;
+
+  line-height: 1.3;
+
+  text-transform: uppercase;
+
+  margin: 0 0 16px;
+}
+
+
+/* =========================================================
+   HERO TITLE
+   ========================================================= */
+
+.hero-title {
+  font-size:
+    clamp(
+      48px,
+      4.6vw,
+      68px
+    );
+
+  line-height: 1.02;
+
+  letter-spacing: -0.045em;
+
+  font-weight: 850;
+
+  max-width: 570px;
+
+  margin: 0 0 24px;
+}
+
+
+/* =========================================================
+   HERO DESCRIPTION
+   ========================================================= */
+
+.hero-lead {
+  max-width: 590px;
+
+  margin: 0;
+
+  color: #aebbd0;
+
+  font-size: 17px;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   HERO BUTTONS
+   ========================================================= */
+
+.buttons {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 10px;
+
+  margin-top: 26px;
+}
+
+.btn {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px 16px;
+
+  border: 1px solid var(--line);
+
+  border-radius: 9px;
+
+  background: rgba(10, 22, 40, 0.78);
+
+  color: var(--text);
+
+  font-weight: 760;
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+
+  border-color: #45648d;
+
+  background: rgba(18, 35, 60, 0.9);
+}
+
+.btn.primary {
+  background: var(--accent);
+
+  color: #06101e;
+
+  border-color: var(--accent);
+}
+
+
+/* =========================================================
+   HERO PANEL
+   Bottom horizontal stats bar
+   ========================================================= */
+
+.hero-panel {
+  position: fixed;
+  z-index: 2;
+
+  /* Move panel further left */
+  left: 5%;
+  right: 5%;
+
+  bottom: 20px;
+
+  width: auto;
+  min-height: 108px;
+
+  margin: 0;
+  padding: 0;
+
+  display: grid;
+
+  grid-template-columns: 1.25fr 0.85fr 1.05fr 0.95fr 1.15fr;
+
+  align-items: stretch;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(13, 27, 48, 0.82),
+      rgba(8, 16, 30, 0.68)
+    );
+
+  border:
+    1px solid
+    rgba(125, 170, 220, 0.28);
+
+  border-radius: 16px;
+
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
+
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.25);
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   AVAILABILITY
+   ========================================================= */
+
+.availability {
+  display: flex;
+
+  align-items: center;
+
+  padding: 18px 24px;
+
+  margin: 0;
+
+  color: #d7e2f0;
+
+  font-size: 13px;
+
+  line-height: 1.55;
+
+  border: none;
+
+  border-right:
+    1px solid
+    rgba(130, 170, 215, 0.22);
+
+  background: transparent;
+}
+
+.dot {
+  display: inline-block;
+
+  width: 8px;
+  height: 8px;
+
+  flex: 0 0 8px;
+
+  margin-right: 9px;
+
+  border-radius: 50%;
+
+  background: #6be39a;
+}
+
+
+/* =========================================================
+   STATS
+   ========================================================= */
+
+.stats {
+  display: contents;
+}
+
+.stat {
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  min-height: 108px;
+
+  padding: 17px 25px;
+
+  border: none;
+
+  border-left:
+    1px solid
+    rgba(130, 170, 215, 0.22);
+
+  border-radius: 0;
+
+  background: transparent;
+}
+
+.stat strong {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: #edf3fc;
+
+  font-size: 27px;
+
+  line-height: 1.15;
+
+  font-weight: 850;
+}
+
+.stat span {
+  color: #aebbd0;
+
+  font-size: 12px;
+
+  line-height: 1.45;
+}
+
+
+/* =========================================================
+   REMOVE OLD PHOTO CARD
+   ========================================================= */
+
+.hero-photo {
+  display: none;
+}
+
+
+/* =========================================================
+   GENERAL SECTIONS
+   ========================================================= */
+
+section {
+  padding: 66px 0;
+
+  border-top: 1px solid var(--line);
+}
+
+.section-tight {
+  padding-top: 52px;
+}
+
+.section-head {
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 40px;
+
+  align-items: end;
+
+  margin-bottom: 24px;
+}
+
+.section-head h2 {
+  font-size: 32px;
+
+  line-height: 1.15;
+
+  margin: 5px 0 0;
+}
+
+.section-head > p {
+  color: var(--muted);
+
+  max-width: 530px;
+
+  margin: 0;
+}
+
+
+/* =========================================================
+   HIGHLIGHTS / CARDS
+   ========================================================= */
+
+.highlight-grid,
+.cards,
+.architecture-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, 1fr);
+
+  gap: 16px;
+}
+
+.highlight-card,
+.card,
+.arch,
+.contact {
+  background:
+    linear-gradient(
+      145deg,
+      #121d32,
+      #0d1627
+    );
+
+  border:
+    1px solid
+    var(--line);
+
+  border-radius: 16px;
+
+  padding: 23px;
+}
+
+.highlight-card {
+  min-height: 185px;
+}
+
+.icon {
+  color: var(--accent);
+
+  font-size: 12px;
+
+  font-weight: 800;
+}
+
+.highlight-card h3,
+.card h3,
+.arch h3 {
+  margin: 8px 0 6px;
+
+  font-size: 20px;
+}
+
+.highlight-card p,
+.card p,
+.arch p {
+  color: var(--muted);
+
+  margin: 0;
+}
+
+
+/* =========================================================
+   TAGS
+   ========================================================= */
+
+.mini-tags,
+.tags {
+  display: flex;
+
+  gap: 7px;
+
+  flex-wrap: wrap;
+
+  margin-top: 14px;
+}
+
+.mini-tags span,
+.tags span,
+.skill-cloud span {
+  font-size: 12px;
+
+  padding: 4px 9px;
+
+  border:
+    1px solid
+    var(--line);
+
+  border-radius: 99px;
+
+  color: #cbd7e8;
+
+  background: #17243a;
+}
+
+
+/* =========================================================
+   EXPERIENCE / JOBS
+   ========================================================= */
+
+.job {
+  display: grid;
+
+  grid-template-columns:
+    55px 1fr;
+
+  gap: 0;
+
+  border-left:
+    2px solid
+    var(--accent);
+
+  padding:
+    0 0 30px 22px;
+
+  margin:
+    27px 0 0 9px;
+}
+
+.job-number {
+  font-size: 12px;
+
+  color: var(--accent);
+
+  font-weight: 850;
+
+  padding-top: 4px;
+}
+
+.job h3 {
+  margin: 0;
+
+  font-size: 21px;
+}
+
+.meta {
+  color: var(--accent);
+
+  font-size: 14px;
+
+  margin: 2px 0 13px;
+}
+
+.job ul {
+  padding-left: 20px;
+
+  color: var(--muted);
+}
+
+.job li {
+  margin: 7px 0;
+}
+
+.job-grid {
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap: 28px;
+}
+
+.job-label {
+  display: block;
+
+  margin-top: 4px;
+  margin-bottom: 5px;
+
+  color: var(--accent);
+
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+
+  text-transform: uppercase;
+
+  font-size: 12px;
+}
+
+.featured-job {
+  background:
+    linear-gradient(
+      145deg,
+      #111f36,
+      #0c1526
+    );
 
   border-radius: 14px;
 
-  display: grid;
-  place-items: center;
+  padding:
+    20px 20px 20px 0;
 
-  background: var(--accent);
-  color: #06101e;
-
-  font-size: 17px;
-  font-weight: 900;
+  border-left-width: 3px;
 }
 
-.cert-info h3 {
-  font-size: 17px;
-  line-height: 1.3;
-  margin: 5px 0;
+
+/* =========================================================
+   ARCHITECTURE
+   ========================================================= */
+
+.architecture-grid {
+  grid-template-columns:
+    1fr 1fr;
 }
 
-.cert-info p {
-  color: var(--muted);
-  font-size: 13px;
-  margin: 0 0 10px;
+.arch.wide {
+  grid-column: 1 / -1;
 }
 
-.cert-status {
-  font-size: 10px;
-  letter-spacing: 1.2px;
-  font-weight: 800;
-  color: #6be39a;
-}
-
-.cert-meta {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-
-  color: #aebbd0;
-  font-size: 12px;
-}
-
-.certificate-link {
-  display: inline-block;
+.arch img {
+  width: 100%;
 
   margin-top: 13px;
-  padding: 7px 10px;
 
-  border: 1px solid var(--line);
-  border-radius: 7px;
+  border-radius: 10px;
 
-  background: #17243a;
-  color: #e9f2ff;
+  background: #09111f;
 
-  font-size: 12px;
-  font-weight: 750;
+  border:
+    1px solid
+    #1d2a40;
 }
-
-.certificate-link:hover {
-  border-color: #45648d;
-}
-
-
-/* =========================
-   Responsive
-   ========================= */
-
-@media (max-width: 950px) {
-
-  .skill-groups {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .cert-grid {
-    grid-template-columns: 1fr;
-  }
-
-}
-
-
-@media (max-width: 600px) {
-
-  .skill-groups {
-    grid-template-columns: 1fr;
-  }
-
-  .cert-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .cert-card {
-    flex-direction: row;
-  }
-
-}
-
-/* =========================
-   Architecture Cards
-   ========================= */
 
 .arch-header {
   display: flex;
+
   align-items: center;
+
   gap: 14px;
+
   margin-bottom: 16px;
 }
 
@@ -221,9 +792,13 @@ footer{text-align:center;color:var(--muted);padding:36px;border-top:1px solid va
   height: 46px;
 
   display: grid;
+
   place-items: center;
 
-  border: 1px solid var(--line);
+  border:
+    1px solid
+    var(--line);
+
   border-radius: 12px;
 
   background: #17243a;
@@ -233,7 +808,9 @@ footer{text-align:center;color:var(--muted);padding:36px;border-top:1px solid va
 
 .arch-label {
   font-size: 10px;
+
   letter-spacing: 1.4px;
+
   font-weight: 800;
 
   color: var(--accent);
@@ -247,28 +824,39 @@ footer{text-align:center;color:var(--muted);padding:36px;border-top:1px solid va
 
 .arch p {
   line-height: 1.65;
+
   margin-bottom: 18px;
 }
 
 
-/* GCP Migration Flow */
+/* =========================================================
+   ARCHITECTURE FLOW
+   ========================================================= */
 
 .architecture-flow {
   display: flex;
+
   align-items: center;
+
   flex-wrap: wrap;
 
   gap: 7px;
 
   margin: 18px 0;
+
   padding: 12px;
 
-  border: 1px solid var(--line);
+  border:
+    1px solid
+    var(--line);
+
   border-radius: 10px;
 
-  background: rgba(255,255,255,.02);
+  background:
+    rgba(255, 255, 255, 0.02);
 
   font-size: 12px;
+
   font-weight: 700;
 }
 
@@ -284,151 +872,32 @@ footer{text-align:center;color:var(--muted);padding:36px;border-top:1px solid va
 
 .architecture-flow .arrow {
   color: var(--accent);
+
   font-size: 15px;
 }
 
 
-/* Architecture Tags */
-
-.architecture-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-.architecture-tags span {
-  padding: 5px 8px;
-
-  border: 1px solid var(--line);
-  border-radius: 6px;
-
-  background: #17243a;
-
-  color: #b9c7d9;
-
-  font-size: 11px;
-}
-
-
-/* Mobile */
-
-@media (max-width: 600px) {
-
-  .arch-header {
-    align-items: flex-start;
-  }
-
-  .architecture-flow {
-    gap: 5px;
-  }
-
-}
-
-/* =========================
-   GCP Migration Architecture
-   ========================= */
+/* =========================================================
+   GCP MIGRATION DIAGRAM
+   ========================================================= */
 
 .arch-diagram {
   margin-top: 22px;
-  padding: 18px 20px;
-  background: #091322;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-}
 
-.diagram-title {
-  color: var(--accent);
-  font-size: 11px;
-  font-weight: 800;
-  margin-bottom: 20px;
-}
-
-.diagram-flow {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  width: 100%;
-}
-
-.diagram-node {
-  min-width: 115px;
-  padding: 12px 10px;
-  text-align: center;
-  background: #111f35;
-  border: 1px solid #243956;
-  border-radius: 8px;
-  color: #dce7f5;
-  font-size: 11px;
-}
-
-.diagram-node strong {
-  display: block;
-  font-size: 11px;
-  font-weight: 700;
-  margin-bottom: 5px;
-}
-
-.diagram-node small {
-  display: block;
-  color: #8fa1b9;
-  font-size: 9px;
-}
-
-.diagram-arrow {
-  color: var(--accent);
-  font-size: 18px;
-  font-weight: 700;
-  flex-shrink: 0;
-}
-
-.architecture-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 7px;
-  margin-top: 14px;
-}
-
-.architecture-tags span {
-  padding: 6px 10px;
-  background: #17243a;
-  border: 1px solid var(--line);
-  border-radius: 7px;
-  color: #b9c7d9;
-  font-size: 11px;
-}
-
-@media (max-width: 700px) {
-
-  .diagram-flow {
-    flex-direction: column;
-  }
-
-  .diagram-arrow {
-    transform: rotate(90deg);
-  }
-
-  .diagram-node {
-    width: 100%;
-    max-width: 220px;
-  }
-
-}
-
-/* =========================
-   GCP Migration Architecture
-   ========================= */
-
-.arch-diagram {
-  margin-top: 22px;
   padding: 18px 20px;
 
   background: #091322;
-  border: 1px solid var(--line);
+
+  border:
+    1px solid
+    var(--line);
+
   border-radius: 12px;
 
   width: 100%;
+
   box-sizing: border-box;
+
   overflow: hidden;
 }
 
@@ -436,6 +905,7 @@ footer{text-align:center;color:var(--muted);padding:36px;border-top:1px solid va
   color: var(--accent);
 
   font-size: 11px;
+
   font-weight: 800;
 
   margin-bottom: 20px;
@@ -443,17 +913,21 @@ footer{text-align:center;color:var(--muted);padding:36px;border-top:1px solid va
 
 .diagram-flow {
   display: flex;
+
   align-items: center;
 
   width: 100%;
+
   max-width: 100%;
 
   gap: 8px;
+
   box-sizing: border-box;
 }
 
 .diagram-node {
   flex: 1 1 0;
+
   min-width: 0;
 
   padding: 12px 8px;
@@ -462,7 +936,10 @@ footer{text-align:center;color:var(--muted);padding:36px;border-top:1px solid va
 
   background: #111f35;
 
-  border: 1px solid #243956;
+  border:
+    1px solid
+    #243956;
+
   border-radius: 8px;
 
   color: #dce7f5;
@@ -476,6 +953,7 @@ footer{text-align:center;color:var(--muted);padding:36px;border-top:1px solid va
   display: block;
 
   font-size: 11px;
+
   font-weight: 700;
 
   margin-bottom: 5px;
@@ -499,16 +977,18 @@ footer{text-align:center;color:var(--muted);padding:36px;border-top:1px solid va
   color: var(--accent);
 
   font-size: 18px;
+
   font-weight: 700;
 }
 
 
-/* =========================
-   Architecture Tags
-   ========================= */
+/* =========================================================
+   ARCHITECTURE TAGS
+   ========================================================= */
 
 .architecture-tags {
   display: flex;
+
   flex-wrap: wrap;
 
   gap: 7px;
@@ -521,7 +1001,9 @@ footer{text-align:center;color:var(--muted);padding:36px;border-top:1px solid va
 
   background: #17243a;
 
-  border: 1px solid var(--line);
+  border:
+    1px solid
+    var(--line);
 
   border-radius: 7px;
 
@@ -531,14 +1013,617 @@ footer{text-align:center;color:var(--muted);padding:36px;border-top:1px solid va
 }
 
 
-/* =========================
-   Mobile
-   ========================= */
+/* =========================================================
+   TECHNICAL STACK
+   ========================================================= */
+
+.tool-groups {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, 1fr);
+
+  gap: 14px;
+}
+
+.tool-group {
+  background:
+    linear-gradient(
+      145deg,
+      #101c31,
+      #0c1526
+    );
+
+  border:
+    1px solid
+    var(--line);
+
+  border-radius: 14px;
+
+  padding: 18px;
+}
+
+.tool-category {
+  font-size: 12px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1.2px;
+
+  color: var(--accent);
+
+  font-weight: 800;
+
+  margin-bottom: 11px;
+}
+
+.tool-list {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 8px;
+}
+
+.tool-list span {
+  display: inline-flex;
+
+  align-items: center;
+
+  padding: 6px 10px;
+
+  border:
+    1px solid
+    var(--line);
+
+  border-radius: 8px;
+
+  background: #17243a;
+
+  color: #d7e1ef;
+
+  font-size: 13px;
+
+  line-height: 1.2;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   SKILLS
+   ========================================================= */
+
+.skill-groups {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 12px;
+}
+
+.skill-group {
+  background:
+    linear-gradient(
+      145deg,
+      #101c31,
+      #0c1526
+    );
+
+  border:
+    1px solid
+    var(--line);
+
+  border-radius: 12px;
+
+  padding: 15px;
+}
+
+.skill-category {
+  font-size: 11px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1px;
+
+  color: var(--accent);
+
+  font-weight: 800;
+
+  margin-bottom: 9px;
+}
+
+.skill-items {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 6px;
+}
+
+.skill-items span {
+  display: inline-flex;
+
+  align-items: center;
+
+  padding: 5px 8px;
+
+  border:
+    1px solid
+    var(--line);
+
+  border-radius: 7px;
+
+  background: #17243a;
+
+  color: #d7e1ef;
+
+  font-size: 12px;
+
+  line-height: 1.15;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   CERTIFICATIONS
+   ========================================================= */
+
+.cert-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 14px;
+}
+
+.cert-card {
+  display: flex;
+
+  gap: 18px;
+
+  align-items: flex-start;
+
+  background:
+    linear-gradient(
+      145deg,
+      #121f35,
+      #0d1627
+    );
+
+  border:
+    1px solid
+    var(--line);
+
+  border-radius: 16px;
+
+  padding: 20px;
+}
+
+.cert-badge {
+  width: 64px;
+
+  height: 64px;
+
+  flex: 0 0 64px;
+
+  border-radius: 14px;
+
+  display: grid;
+
+  place-items: center;
+
+  background: var(--accent);
+
+  color: #06101e;
+
+  font-size: 17px;
+
+  font-weight: 900;
+}
+
+.cert-info h3 {
+  font-size: 17px;
+
+  line-height: 1.3;
+
+  margin: 5px 0;
+}
+
+.cert-info p {
+  color: var(--muted);
+
+  font-size: 13px;
+
+  margin: 0 0 10px;
+}
+
+.cert-status {
+  font-size: 10px;
+
+  letter-spacing: 1.2px;
+
+  font-weight: 800;
+
+  color: #6be39a;
+}
+
+.cert-meta {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+
+  color: #aebbd0;
+
+  font-size: 12px;
+}
+
+.certificate-link {
+  display: inline-block;
+
+  margin-top: 13px;
+
+  padding: 7px 10px;
+
+  border:
+    1px solid
+    var(--line);
+
+  border-radius: 7px;
+
+  background: #17243a;
+
+  color: #e9f2ff;
+
+  font-size: 12px;
+
+  font-weight: 750;
+}
+
+.certificate-link:hover {
+  border-color: #45648d;
+}
+
+
+/* =========================================================
+   CONTACT
+   ========================================================= */
+
+.contact {
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 35px;
+
+  align-items: center;
+
+  background:
+    linear-gradient(
+      135deg,
+      #142b49,
+      #0e182b
+    );
+
+  border-color: #2a4d75;
+}
+
+.contact h2 {
+  font-size: 31px;
+
+  margin: 4px 0;
+}
+
+.contact p {
+  color: var(--muted);
+
+  max-width: 690px;
+
+  margin: 0;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+  text-align: center;
+
+  color: var(--muted);
+
+  padding: 36px;
+
+  border-top:
+    1px solid
+    var(--line);
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   GENERAL THREE-COLUMN GRID
+   ========================================================= */
+
+.three {
+  grid-template-columns:
+    repeat(3, 1fr);
+}
+
+
+/* =========================================================
+   RESPONSIVE — 950px
+   ========================================================= */
+
+@media (max-width: 950px) {
+
+  .skill-groups {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  .cert-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    grid-template-columns:
+      48% 52%;
+
+    min-height: 650px;
+  }
+
+  .hero::before {
+    width: 72%;
+
+    background-size: auto 100%;
+
+    background-position: right center;
+  }
+
+  .hero > .wrap {
+    padding-left: 42px;
+
+    padding-right: 20px;
+
+    padding-bottom: 145px;
+  }
+
+  .hero-title {
+    font-size:
+      clamp(
+        44px,
+        5vw,
+        60px
+      );
+  }
+
+  .hero-panel {
+    left: 28%;
+
+    right: 3%;
+
+    bottom: 18px;
+  }
+
+  .availability {
+    padding: 15px 18px;
+  }
+
+  .stat {
+    padding: 15px 17px;
+  }
+
+  .stat strong {
+    font-size: 23px;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE — 850px
+   ========================================================= */
+
+@media (max-width: 850px) {
+
+  .highlight-grid,
+  .cards,
+  .architecture-grid,
+  .job-grid,
+  .three {
+    grid-template-columns: 1fr;
+  }
+
+  .section-head {
+    display: block;
+  }
+
+  .section-head > p {
+    margin-top: 12px;
+  }
+
+  .links {
+    display: none;
+  }
+
+  .section-tight {
+    padding-top: 45px;
+  }
+
+  .contact {
+    display: block;
+  }
+
+  .contact .buttons {
+    margin-top: 22px;
+  }
+
+  .arch.wide {
+    grid-column: auto;
+  }
+
+  .tool-groups {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE — 750px
+   ========================================================= */
+
+@media (max-width: 750px) {
+
+  .hero {
+    min-height: 850px;
+
+    display: block;
+
+    padding: 0;
+  }
+
+
+  /*
+     Full office photo behind the entire hero.
+  */
+
+  .hero::before {
+    width: 100%;
+
+    background-size: auto 100%;
+
+    background-position:
+      center top;
+
+    opacity: 0.78;
+  }
+
+
+  .hero::after {
+    background:
+      linear-gradient(
+        180deg,
+
+        rgba(8, 20, 38, 0.48) 0%,
+
+        rgba(8, 20, 38, 0.62) 42%,
+
+        rgba(8, 20, 38, 0.90) 72%,
+
+        #080d18 100%
+      );
+  }
+
+
+  .hero > .wrap {
+    padding:
+      55px
+      24px
+      250px;
+
+    max-width: 100%;
+  }
+
+
+  .hero .kicker {
+    font-size: 13px;
+
+    letter-spacing: 1.6px;
+  }
+
+
+  .hero-title {
+    font-size:
+      clamp(
+        40px,
+        11vw,
+        52px
+      );
+
+    line-height: 1.03;
+
+    max-width: 100%;
+
+    margin-bottom: 18px;
+  }
+
+
+  .hero-lead {
+    font-size: 15px;
+
+    max-width: 100%;
+  }
+
+
+  .hero-panel {
+    left: 20px;
+
+    right: 20px;
+
+    bottom: 18px;
+
+    display: block;
+
+    min-height: auto;
+
+    border-radius: 14px;
+  }
+
+
+  .availability {
+    min-height: auto;
+
+    padding: 13px 16px;
+
+    border-right: none;
+
+    border-bottom:
+      1px solid
+      rgba(130, 170, 215, 0.22);
+  }
+
+
+  .stats {
+    display: grid;
+
+    grid-template-columns:
+      repeat(3, 1fr);
+  }
+
+
+  .stat {
+    min-height: 78px;
+
+    padding: 11px 10px;
+  }
+
+
+  .stat strong {
+    font-size: 21px;
+  }
+
+
+  .stat span {
+    font-size: 10px;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE — 700px
+   ========================================================= */
 
 @media (max-width: 700px) {
 
   .diagram-flow {
     flex-direction: column;
+
     gap: 8px;
   }
 
@@ -548,7 +1633,100 @@ footer{text-align:center;color:var(--muted);padding:36px;border-top:1px solid va
 
   .diagram-node {
     width: 100%;
+
     max-width: 220px;
   }
 
+  .arch-header {
+    align-items: flex-start;
+  }
+
+  .architecture-flow {
+    gap: 5px;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE — 600px
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .skill-groups {
+    grid-template-columns: 1fr;
+  }
+
+  .cert-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cert-card {
+    flex-direction: row;
+  }
+
+  .hero {
+    min-height: 900px;
+  }
+
+  .hero > .wrap {
+    padding-left: 20px;
+
+    padding-right: 20px;
+  }
+
+  .hero-title {
+    font-size: 39px;
+  }
+
+  .stats {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  .stat:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE — 480px
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .hero-title {
+    font-size: 37px;
+  }
+
+  .hero .kicker {
+    font-size: 12px;
+  }
+
+  .hero-lead {
+    font-size: 14px;
+  }
+
+  .buttons {
+    gap: 8px;
+  }
+
+  .btn {
+    padding: 9px 13px;
+
+    font-size: 13px;
+  }
+}
+
+.download-icon {
+  width: 21px;
+  height: 21px;
+  margin-right: 9px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vertical-align: -4px;
 }
