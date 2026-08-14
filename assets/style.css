@@ -1667,8 +1667,12 @@ footer {
     background-image: url("images/profile-office.png");
     background-repeat: no-repeat;
     background-size: auto 100%;
-    background-position: 68% center;
-    opacity: 0.68;
+
+    /* Keep the portrait on the right so the face remains visible
+       beside the left-aligned hero copy. */
+    background-position: 30% center;
+
+    opacity: 0.76;
   }
 
   .hero::after {
@@ -1995,6 +1999,15 @@ footer {
    ========================================================= */
 
 @media (max-width: 480px) {
+
+  /*
+     On narrower phones, shift the portrait slightly further right
+     so the face stays visible without sitting behind the headline.
+  */
+  .hero::before {
+    background-position: 24% center;
+    opacity: 0.74;
+  }
 
   .hero > .wrap {
     padding: 40px 17px 24px;
