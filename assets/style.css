@@ -1647,31 +1647,345 @@ footer {
 
 
 /* =========================================================
-   RESPONSIVE — MOBILE PORTRAIT
+   RESPONSIVE — MOBILE
    ========================================================= */
 
-@media (max-width: 600px) {
+@media (max-width: 750px) {
+
+  .hero {
+    display: flex;
+    flex-direction: column;
+    min-height: auto;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  /* Full office portrait remains blended into the hero.
+     The person is intentionally shifted right on mobile. */
+  .hero::before {
+    width: 100%;
+    background-image: url("images/profile-office.png");
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    background-position: 68% center;
+    opacity: 0.68;
+  }
+
+  .hero::after {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(8, 20, 38, 0.98) 0%,
+        rgba(8, 20, 38, 0.88) 38%,
+        rgba(8, 20, 38, 0.55) 65%,
+        rgba(8, 20, 38, 0.25) 100%
+      ),
+      linear-gradient(
+        180deg,
+        rgba(8, 20, 38, 0.35) 0%,
+        rgba(8, 20, 38, 0.55) 65%,
+        #080d18 100%
+      );
+  }
+
+  .hero > .wrap {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 48px 20px 28px;
+    z-index: 3;
+  }
+
+  .hero .kicker {
+    font-size: 12px;
+    letter-spacing: 1.45px;
+    line-height: 1.35;
+    margin-bottom: 13px;
+  }
+
+  .hero-title {
+    font-size: clamp(36px, 10.5vw, 46px);
+    line-height: 1.02;
+    letter-spacing: -0.045em;
+    max-width: 100%;
+    margin: 0 0 18px;
+  }
+
+  .hero-lead {
+    max-width: 100%;
+    font-size: 14px;
+    line-height: 1.65;
+    color: #b7c4d7;
+    margin: 0;
+  }
+
+  .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 20px;
+  }
+
+  .btn {
+    padding: 9px 12px;
+    min-height: 38px;
+    font-size: 12px;
+    border-radius: 8px;
+  }
+
+  .download-icon {
+    width: 17px;
+    height: 17px;
+    flex: 0 0 17px;
+    margin-right: 0;
+  }
+
+  /* Desktop panel is fixed; mobile panel belongs to the hero flow. */
+  .hero-panel {
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: auto;
+
+    width: calc(100% - 30px);
+    min-height: 0;
+
+    margin: 0 15px 24px;
+    padding: 0;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    border-radius: 14px;
+    overflow: hidden;
+    z-index: 4;
+
+    background:
+      linear-gradient(
+        135deg,
+        rgba(13, 27, 48, 0.94),
+        rgba(8, 16, 30, 0.91)
+      );
+
+    border: 1px solid rgba(125, 170, 220, 0.25);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.28);
+  }
+
+  .availability {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    min-height: 48px;
+    padding: 12px 14px;
+    margin: 0;
+    border: 0;
+    border-bottom: 1px solid rgba(130, 170, 215, 0.18);
+    color: #d7e2f0;
+    font-size: 11px;
+    line-height: 1.35;
+    background: rgba(255, 255, 255, 0.015);
+  }
+
+  .dot {
+    width: 7px;
+    height: 7px;
+    flex: 0 0 7px;
+    margin-right: 8px;
+  }
+
+  .stats {
+    display: contents;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 76px;
+    padding: 12px 14px;
+    border: 0;
+    border-left: 1px solid rgba(130, 170, 215, 0.16);
+    border-bottom: 1px solid rgba(130, 170, 215, 0.16);
+    border-radius: 0;
+    background: transparent;
+  }
+
+  .stat:nth-of-type(odd) {
+    border-left: 0;
+  }
+
+  .stat:nth-last-child(-n + 2) {
+    border-bottom: 0;
+  }
+
+  .stat strong {
+    font-size: 18px;
+    line-height: 1.15;
+    margin-bottom: 4px;
+  }
+
+  .stat span {
+    font-size: 9px;
+    line-height: 1.35;
+    color: #9eacc1;
+  }
+
+  section {
+    padding: 48px 0;
+  }
+
+  .section-tight {
+    padding-top: 42px;
+  }
+
+  .section-head {
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .section-head h2 {
+    font-size: 29px;
+    line-height: 1.15;
+  }
+
+  .section-head > p {
+    font-size: 14px;
+    line-height: 1.65;
+    margin-top: 10px;
+  }
+
+  .highlight-grid,
+  .cards,
+  .architecture-grid,
+  .job-grid,
+  .three {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .highlight-card,
+  .card,
+  .arch {
+    padding: 18px;
+    border-radius: 14px;
+  }
+
+  .highlight-card {
+    min-height: 0;
+  }
+
+  .highlight-card h3,
+  .card h3,
+  .arch h3 {
+    font-size: 18px;
+  }
+
+  .highlight-card p,
+  .card p,
+  .arch p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .job {
+    grid-template-columns: 38px 1fr;
+    padding: 0 0 26px 16px;
+    margin: 22px 0 0 6px;
+  }
+
+  .job h3 {
+    font-size: 18px;
+    line-height: 1.35;
+  }
+
+  .meta {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .job ul {
+    padding-left: 18px;
+  }
+
+  .job li {
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 6px 0;
+  }
+
+  .featured-job {
+    padding: 16px 16px 16px 0;
+  }
+
+  .diagram-flow {
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .diagram-arrow {
+    transform: rotate(90deg);
+  }
+
+  .diagram-node {
+    width: 100%;
+    max-width: 220px;
+  }
+
+  .arch-header {
+    align-items: flex-start;
+  }
+
+  .architecture-flow {
+    gap: 5px;
+  }
 
   .skill-groups,
+  .tool-groups,
   .cert-grid {
     grid-template-columns: 1fr;
   }
 
+  .skill-group {
+    padding: 14px;
+  }
+
   .cert-card {
-    flex-direction: row;
+    gap: 14px;
+    padding: 17px;
+    align-items: flex-start;
   }
 
-  .hero {
-    min-height: 850px;
+  .cert-badge {
+    width: 56px;
+    height: 56px;
+    flex: 0 0 56px;
+    border-radius: 12px;
+    font-size: 15px;
   }
 
-  .hero > .wrap {
-    padding-left: 20px;
-    padding-right: 20px;
+  .cert-info h3 {
+    font-size: 16px;
   }
 
-  .hero-title {
-    font-size: 39px;
+  .contact {
+    display: block;
+    padding: 20px;
+  }
+
+  .contact h2 {
+    font-size: 27px;
+  }
+
+  .contact p {
+    font-size: 14px;
+  }
+
+  .contact .buttons {
+    margin-top: 20px;
   }
 }
 
@@ -1682,52 +1996,81 @@ footer {
 
 @media (max-width: 480px) {
 
-  .hero {
-    min-height: 870px;
-  }
-
-  .hero-title {
-    font-size: 37px;
+  .hero > .wrap {
+    padding: 40px 17px 24px;
   }
 
   .hero .kicker {
-    font-size: 12px;
+    font-size: 11px;
+    letter-spacing: 1.25px;
+  }
+
+  .hero-title {
+    font-size: 35px;
+    line-height: 1.02;
+    margin-bottom: 16px;
   }
 
   .hero-lead {
-    font-size: 14px;
+    font-size: 13.5px;
+    line-height: 1.62;
   }
 
   .buttons {
-    gap: 8px;
+    gap: 7px;
+    margin-top: 18px;
   }
 
   .btn {
-    padding: 9px 13px;
-    font-size: 13px;
+    padding: 8px 10px;
+    min-height: 36px;
+    font-size: 11.5px;
+  }
+
+  .download-icon {
+    width: 16px;
+    height: 16px;
+    flex-basis: 16px;
   }
 
   .hero-panel {
-    left: 12px;
-    right: 12px;
-    bottom: 12px;
+    width: calc(100% - 24px);
+    margin: 0 12px 20px;
   }
 
   .availability {
-    font-size: 11px;
-    padding: 10px 12px;
+    padding: 11px 12px;
+    font-size: 10.5px;
   }
 
   .stat {
-    min-height: 66px;
-    padding: 8px 9px;
+    min-height: 70px;
+    padding: 10px 12px;
   }
 
   .stat strong {
-    font-size: 18px;
+    font-size: 17px;
   }
 
   .stat span {
-    font-size: 9px;
+    font-size: 8.5px;
+  }
+
+  section {
+    padding: 42px 0;
+  }
+
+  .section-tight {
+    padding-top: 38px;
+  }
+
+  .section-head h2 {
+    font-size: 27px;
+  }
+
+  .highlight-card,
+  .card,
+  .arch {
+    padding: 17px;
   }
 }
